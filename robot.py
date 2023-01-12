@@ -8,7 +8,12 @@ class Robot(commands2.TimedCommandRobot):
     def robotInit(self):
         self.container = RobotContainer()
         self.autonomous_command = self.container.getAutonomousCommand()
+        self.gyro = wpilib.ADIS16448_IMU()
         super().robotInit()
+    
+    def robotPeriodic(self) -> None:
+        print(round(self.gyro.getGyroAngleY()))
+        return super().robotPeriodic()
 
     def autonomousInit(self):
         self.autonomous_command.schedule()

@@ -29,11 +29,12 @@ class RobotContainer:
     def configureButtonBindings(self):
         trigger = commands2.button.JoystickButton(self.joystick, 1)
         button2 = commands2.button.JoystickButton(self.joystick, 2)
+        button3 = commands2.button.JoystickButton(self.joystick, 3)
         trigger.whileHeld(
             self.shoot
         )
         button2.whileHeld(
-            commands2.StartEndCommand(self.intake.start, self.intake.stop)
+            commands2.StartEndCommand(self.intake.start, self.intake.stop)  
         )
 
         
